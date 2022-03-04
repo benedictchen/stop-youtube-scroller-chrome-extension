@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Stop YouTube Volume Scroll",
+  "description": "Stop YouTube Volume Scroller",
+  "version": "1.42",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*", "<all_urls>"],
+      "js": ["main.js"],
+      "all_frames": true
+    }
+  ]
+}

@@ -6,17 +6,23 @@ function freshNode(oldElement) {
 if (/youtube\.com/.test(window.location.hostname)) {
 	console.log("YouTube detected");
 	
-	Array.from(window.document.body.querySelectorAll('video')).forEach((element) => {
-		console.log({element})
-		freshNode(element);
-	});	
-	
+	setTimeout(() => {
+		Array.from(window.document.body.querySelectorAll('video')).forEach((element) => {
+			freshNode(element);
+		});			
+	}, 2000);
+
 	window.document.body.addEventListener('yt-navigate-finish', () => {
 		setTimeout(() => {
 			Array.from(window.document.body.querySelectorAll('video')).forEach((element) => {
 				freshNode(element);
+				setTimeout(() => {
+					document.querySelector('.ytp-scrubber-container').click();
+					element.currentTime = 0;
+					element.play();
+				});
 			});	
-		}, 1000);
+		}, 2000);
 	});
 } else {
 	console.log('Not YouTube.');

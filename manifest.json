@@ -3,7 +3,7 @@
 
   "name": "Stop YouTube Volume Scroll",
   "description": "Stop YouTube Volume Scroller",
-  "version": "1.42",
+  "version": "2.00",
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*", "<all_urls>"],
